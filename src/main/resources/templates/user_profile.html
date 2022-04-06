@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>User Profile</title>
+<link rel = "stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css" />
+</head>
+<body>
+	<div class = "container text-center">
+	
+		<div>
+			<form th:action="@{/logout}" method="post">
+			<p>
+				Welcome <b>[[${#request.userPrincipal.principal.fullName}]]</b>
+			</p>
+			
+			
+			<input type="submit" value="sign out" style="float: right"/>
+			
+			</form>
+		</div>
+		<div>
+			<div class="thead-dark"><a th:href="@{/result}">Check Result</a></div>
+		</div>
+	</div>
+	<table class="table table-traped table-bordered">
+		<thead>
+			<tr class="thead-dark">
+				<th>Year</th>
+				<th>Semester</th>
+				<th>CouseCode</th>
+				<th>Title</th>
+				<th>CreditUnit</th>
+				<th>Assessment</th>
+				<th>Exam</th>
+				<th>Other</th>
+				<th>Grade</th>
+				<th>Remark</th>
+				<th><a href="@{/edit/{id}">Edit</a></th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="listcourses: ${listcourses}">
+				<td></td>
+				<td th:text="${listcourses.matricNo}">Matric No</td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+		</tbody>
+	</table>
+
+</body>
+</html>
